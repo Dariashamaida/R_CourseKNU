@@ -2,11 +2,11 @@
 integer, complex, logical.
 
 ```R`````
-x1<-'hello'
-x2<-2
-x3<-1L
-x4<- 1 + 2i
-x5<- TRUE
+x1<-'hello' <br>
+x2<-2      <br>
+x3<-1L     <br>
+x4<- 1 + 2i  <br>
+x5<- TRUE   <br>
 ````````
 
 > x1
