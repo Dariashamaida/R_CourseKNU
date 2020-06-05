@@ -1,6 +1,6 @@
 # Лабораторна робота № 1
 
-## 1. Створити змінні базових (atomic) типів. Базові типи: character, numeric, integer, complex, logical.
+### 1. Створити змінні базових (atomic) типів. Базові типи: character, numeric, integer, complex, logical.
 
 ```{R} 
 x1<-'hello' 
@@ -21,7 +21,7 @@ x5
 [1] TRUE
 ```
 
-## 2. Створити вектори, які: містить послідовність з 5 до 75; містить числа 3.14, 2.71, 0, 13; 100 значень TRUE.
+### 2. Створити вектори, які: містить послідовність з 5 до 75; містить числа 3.14, 2.71, 0, 13; 100 значень TRUE.
 
 ```{R} 
 vector1 <- 5:75
@@ -40,7 +40,7 @@ vector3
  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ```
 
-## 3.Створити наступну матрицю за допомогою matrix, та за допомогою cbind або rbind 0.5 1.3 3.5 3.9 131 2.8 0 2.2 4.6 2 7 5.1
+### 3.Створити наступну матрицю за допомогою matrix, та за допомогою cbind або rbind 0.5 1.3 3.5 3.9 131 2.8 0 2.2 4.6 2 7 5.1
 
 ```{R}
 0.5 1.3 3.5 
@@ -81,7 +81,7 @@ matrix3
 [4,]  2.0   7.0  5.1
 ```
 
-# 4. Створити довільний список (list), в який включити всі базові типи.
+### 4. Створити довільний список (list), в який включити всі базові типи.
 
 ```{R}
 list_1<-list(1,'a',1+2i,0.25, TRUE)
@@ -103,7 +103,7 @@ list_1<-list(1,'a',1+2i,0.25, TRUE)
 [1] TRUE
 ```
 
-# 5.Створити фактор з трьома рівнями «baby», «child», «adult».
+### 5.Створити фактор з трьома рівнями «baby», «child», «adult».
 
 ```{R}
 age<-factor(c('adult','baby','child','baby','child','baby'),levels=c('baby','child','adult'))
@@ -113,9 +113,9 @@ age
 Levels: baby child adult
 ```
 
-# 6. Знайти індекс першого значення NA в векторі 1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11. Знайти кількість значень NA.
+### 6. Знайти індекс першого значення NA в векторі 1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11. Знайти кількість значень NA.
+
 ```{R}
-#R and resuly together`
 vector_for_na<-c(1, 2, 3, 4, NA, 6, 7, NA, 9, NA)
 match(NA,vector_for_na)
 [1] 5
@@ -123,7 +123,7 @@ sum(is.na(vector_for_na))
 [1] 3
 ```
 
-# 7.Створити довільний data frame та вивести в консоль.
+### 7.Створити довільний data frame та вивести в консоль.
 
 ```{R}
 data_frame<-data.frame(place=c('France','UK','Japan','USA'),costs=c(500,1200,1500,2500), time=c(3,4,10,15), continent=c('Eurasia','Eurasia','Eurasia','North America'))
@@ -136,7 +136,7 @@ data_frame
 4    USA  2500   15 North America
 ```
 
-# 8. Змінити імена стовпців цього data frame.
+### 8. Змінити імена стовпців цього data frame.
 
 ```{R}
 colnames(data_frame) <- c("Country", "Spendings", "Flight time","Mainland")
