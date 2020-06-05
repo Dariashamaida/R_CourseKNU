@@ -40,7 +40,7 @@ vector3
  [76] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ```
 
-# 3. Створити наступну матрицю за допомогою matrix, та за допомогою cbind або rbind 0.5 1.3 3.5 3.9 131 2.8 0 2.2 4.6 2 7 5.1
+## 3.Створити наступну матрицю за допомогою matrix, та за допомогою cbind або rbind 0.5 1.3 3.5 3.9 131 2.8 0 2.2 4.6 2 7 5.1
 
 ```{R}
 matrix1<- matrix (c(0.5, 1.3, 3.5, 3.9, 131, 2.8, 0, 2.2, 4.6, 2, 7, 5.1), nrow=4, ncol=3, byrow=TRUE)
