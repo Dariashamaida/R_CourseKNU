@@ -209,6 +209,43 @@
 ```
 ### 3, Створити вектор z з елементами 1, 2, 3, NA, 4, NA, 5, NA. Для цього вектору: виведіть всі елементи, які не NA; підрахуйте середнє значення всіх елементів цього вектору без NA значень та з NA значеннями.
 
+```{R}
+> my_vector<-c(1, 2, 3, NA, 4, NA, 5, NA)
+> my_vector
+[1]  1  2  3 NA  4 NA  5 NA
+
+> #having all values not equal NA
+
+> #variant 1
+
+> my_vect_comp<-complete.cases(my_vector)
+> my_vect_comp
+[1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+> my_vector[my_vect_comp]
+[1] 1 2 3 4 5
+
+> #variant 2
+> my_vect_na<-is.na(my_vector)
+> my_vect_na
+[1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE
+> my_vector[!my_vect_na]
+[1] 1 2 3 4 5
+
+> #calculating mean of vector without NA
+
+> #variant 1
+> mean(my_vector[my_vect_comp])
+[1] 3
+
+> #variant 2
+> mean(my_vector[!my_vect_na])
+[1] 3
+
+> #calculating mean of vector with NA
+> mean(my_vector)
+[1] NA
+```
+
 
 
 
