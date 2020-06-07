@@ -54,5 +54,85 @@
  [9,]  0.09416340  0.2065641  0.89182910  0.46282209  0.61118272
 [10,]  1.65488287  1.2832101  1.39480579  1.47646481  1.10276509
 ```
+### 6. Знайти кількість значень < 0 для кожного стовпця. Використати свою функцію.
+```{R}
+> count_lt0<-function(x){
++    sum(x<0)
++ }
 
+> apply(mat,2,count_lt0)
+[1] 7 7 2 4 4
+```
 
+### 7. Вивести вектор з булевими значеннями TRUE та FALSE. TRUE, якщо в стовпці є елементи >2, FALSE – якщо немає.
+
+```{R}
+> count_2<-function(x){
++     sum(x>2)>0
++ }
+> apply(mat,2,count_2)
+[1] FALSE FALSE FALSE FALSE FALSE
+```
+
+### 8. Створить список list1 <- list(observationA = c(1:5, 7:3), observationB = matrix(1:6, nrow=2)). Для цього списку знайдіть sum за допомогою lapply.
+```{R}
+> list1 <- list(observationA = c(1:5, 7:3), observationB = matrix(1:6, nrow=2))
+> list1
+$observationA
+ [1] 1 2 3 4 5 7 6 5 4 3
+
+$observationB
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+> lapply(list1,sum)
+$observationA
+[1] 40
+
+$observationB
+[1] 21
+```
+
+### 9. Для кожного елементу списку list1 знайдіть максимальне та мінімальне значення (range) за допомогою lapply та sapply.
+```{R}
+> sapply(list1,range)
+     observationA observationB
+[1,]            1            1
+[2,]            7            6
+
+> lapply(list1,range)
+$observationA
+[1] 1 7
+
+$observationB
+[1] 1 6
+
+```
+
+### 10. Для вбудованого набору даних InsectSprays знайти середнє count для кожного spray.
+```{R}
+
+> new_spray<-split(InsectSprays$count, InsectSprays$spray)
+> sapply(new_spray,mean)
+        A         B         C         D         E         F 
+14.500000 15.333333  2.083333  4.916667  3.500000 16.666667 
+> lapply(new_spray,mean)
+$A
+[1] 14.5
+
+$B
+[1] 15.33333
+
+$C
+[1] 2.083333
+
+$D
+[1] 4.916667
+
+$E
+[1] 3.5
+
+$F
+[1] 16.66667
+```
