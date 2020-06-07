@@ -78,3 +78,38 @@
 [1] 42.12931
 ```
 
+### 7. Виведіть частину набору даних (subset) зі значенням «Ozone» > 31 та «Temp» > 90. Яке середнє (mean) значень «Solar.R» в цьому наборі даних (subset)?
+
+```{R}
+> sample1<-subset(data_for_lab, data_for_lab$Ozone>31 & data_for_lab$Temp>90)
+> sample1
+    Ozone Solar.R Wind Temp Month Day
+69     97     267  6.3   92     7   8
+70     97     272  5.7   92     7   9
+120    76     203  9.7   97     8  28
+121   118     225  2.3   94     8  29
+122    84     237  6.3   96     8  30
+123    85     188  6.3   94     8  31
+124    96     167  6.9   91     9   1
+125    78     197  5.1   92     9   2
+126    73     183  2.8   93     9   3
+127    91     189  4.6   93     9   4
+> mean(sample1$Solar.R)
+[1] 212.8
+```
+
+### 8. Яке середнє значення (mean) для «Temp» для червня («Month» дорівнює 6)?
+```{R}
+> mean(data_for_lab$Temp[data_for_lab$Month==6])
+[1] 79.1
+```
+
+### 9. Яке максимальне значення «Ozone» для травня («Month» дорівнює 5)?
+```{R}
+> #with NA values
+> max(data_for_lab$Ozone[data_for_lab$Month==5])
+[1] NA
+> #without NA values
+> max(data_for_lab$Ozone[data_for_lab$Month==5], na.rm=TRUE)
+[1] 115
+```
