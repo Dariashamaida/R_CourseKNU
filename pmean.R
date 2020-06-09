@@ -25,4 +25,19 @@ setwd("G:\\KNU\\5 курс\\2 семестр\\R\\rprog_data_specdata")
 +         }
 + data.frame(id, nobs)
 + }
+>
+>### corr function
+> corr <- function(directory, threshold = 0){ 
++     file_list <- dir(path=directory, pattern =".csv", full.names=TRUE) 
++     corr_v <- NULL 
++     for (i in 1:length(file_list)) { 
++         all <- read.csv(file_list[i]) 
++         data <- all[complete.cases(all),] 
++         if (nrow(data) > threshold) { 
++             corr_v <- c(corr_v, cor(data[,"sulfate"], data[, "nitrate"])) 
++         } 
++     } 
++     return(corr_v) 
++ }
+
 
