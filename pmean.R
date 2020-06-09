@@ -5,7 +5,6 @@
 setwd("G:\\KNU\\5 курс\\2 семестр\\R\\rprog_data_specdata")
 
 ### pmean function
-
 > pmean <- function(directory, pollutant, id=1:length(file_list)){
 +    file_list <-  dir(path=directory, pattern =".csv", full.names=TRUE)
 +     x <- numeric()
@@ -16,4 +15,14 @@ setwd("G:\\KNU\\5 курс\\2 семестр\\R\\rprog_data_specdata")
 +     mean(x, na.rm=TRUE)
 + }
 > 
->
+>### complete function
+> complete <- function(directory, id=1:length(file_list)){
++     file_list <- dir(path=directory, pattern =".csv", full.names=TRUE)
++     nobs <- numeric()
++     for (i in id){
++         all_data <- read.csv(file_list[i])
++         nobs <- c(nobs, sum(complete.cases(all_data)))
++         }
++ data.frame(id, nobs)
++ }
+
