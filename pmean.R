@@ -16,4 +16,4 @@ setwd("G:\\KNU\\5 курс\\2 семестр\\R\\rprog_data_specdata")
 +     mean(x, na.rm=TRUE)
 + }
 > 
-> pmean("specdata", "sulfate", 1:10)
+>
