@@ -242,6 +242,19 @@
 
 ### Питання 7 - Який округ (county) має найбільшу абсолютну зміну в населенні протягом періоду 2010-2015?
 ```{R}
-
+> answer_seven<-function() {
++     pop<-subset(census_df, COUNTY!=0, select=c(10:15))
++     max_pop<-apply(pop, 1, max)
++     min_pop<-apply(pop, 1, min)
++     chg<-(max_pop-min_pop)
++     name<-subset(census_df, COUNTY!=0, CTYNAME)
++     popl<-cbind(name, chg)
++     population<-popl$CTYNAME
++     population[which.max(chg)]
++ }
+> answer_seven()
+[1] "Harris County"
 ```
+
+### Питання 8 -В census_df США поділені на 4 регіони (колонка "REGION"). Напишіть функцію, яка знаходить округи (county), що належать регіонам 1 або 2, назва яких починається з "Washington" та POPESTIMATE2015 більше ніж POPESTIMATE2014. Функція повинна повернути 5х2 дата фрейм з колонками "STNAME", "CTYNAME".
 
