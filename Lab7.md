@@ -170,12 +170,13 @@
 ### Питання 3 - В якій крайні найбільша різниця між літніми та зимовими золотими нагородами відносно до загальної кількості нагород (Summer Gold - Winter Gold) / Total Gold. Врахувати тільки країни які мають як мінімум по одній нагороді в літніх та зимових іграх. Функція повинна повернути одне текстове значення.
 ```{R}
 > answer_three <-function(){
-+     data_cond = subset(olymp, Total >0 & Total.1 >0)
-+     data_cond[which.max((olymp$Gold-olymp$Gold.1)/olymp$Gold.2), "Country"]
-+ }
++     data_cond <- subset(olymp, Gold >0 & Gold.1 >0)
++     data_cond[which.max((data_cond$Gold-data_cond$Gold.1)/data_cond$Gold.2), "Country"]
++     }
 > answer_three ()
-[1] "Austria "
+[1] "Bulgaria "
 ```
+
 ### Питання 4 -Необхідно знайти кількість балів по кожній крайні. Бали рахуються наступним чином: Золота нагорода Gold.2 це три бали, срібна Silver.2 - 2 бали та бронзова Bronze.2 – 1 бал. Функція повинна повертати дата фрейм довжиною 146, який складається з двох колонок: "Country", "Points".
 
 ```{R}
