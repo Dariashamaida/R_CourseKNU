@@ -1,6 +1,6 @@
 # Лабораторна робота № 7
 
-### Part 0 - data frame preparation
+## Part 0 - data frame preparation
 
 ```{R}
 > prepare_set <- function(file_name) { 
@@ -143,4 +143,70 @@
 58              4 ISL
  [ reached 'max' / getOption("max.print") -- omitted 88 rows ]
 ```
-### Part 1
+
+## Part 1
+```{R}
+> olymp <- prepare_set("olympics.csv")
+```
+### Питання 1 - Котра країна виграла найбільшу кількість золотих нагород на літніх іграх? Функція повинна повернути одне текстове значення.
+```{R}
+
+> answer_one = function(){
++     olymp[which.max(olymp[[3]]), "Country"]
++ }
+> answer_one ()
+[1] "United States "
+```
+
+### Питання 2 - Яка країна має найбільшу різницю між кількістю нагород на літніх та зимових іграх? Функція повинна повернути одне текстове значення.
+```{R}
+> answer_two = function(){
++     olymp[which.max(olymp$Total-olymp$Total.1), "Country"]
++ }
+> answer_two ()
+[1] "United States "
+```
+
+### Питання 3 - В якій крайні найбільша різниця між літніми та зимовими золотими нагородами відносно до загальної кількості нагород (Summer Gold - Winter Gold) / Total Gold. Врахувати тільки країни які мають як мінімум по одній нагороді в літніх та зимових іграх. Функція повинна повернути одне текстове значення.
+```{R}
+> answer_three <-function(){
++     data_cond = subset(olymp, Total >0 & Total.1 >0)
++     data_cond[which.max((olymp$Gold-olymp$Gold.1)/olymp$Gold.2), "Country"]
++ }
+> answer_three ()
+[1] "Austria "
+```
+### Питання 4 -Необхідно знайти кількість балів по кожній крайні. Бали рахуються наступним чином: Золота нагорода Gold.2 це три бали, срібна Silver.2 - 2 бали та бронзова Bronze.2 – 1 бал. Функція повинна повертати дата фрейм довжиною 146, який складається з двох колонок: "Country", "Points".
+
+```{R}
+
+> answer_four <- function(){
++     olymp$Score = (olymp$Gold.2*3+olymp$Silver.2*2 +olymp$Bronze.2)
++     data_frame <- data.frame(olymp$Country,  olymp$Score)
++     names(data_frame) <- c('Country', 'Score')
++     data_frame
++ }
+
+> #read first 10 records
+> head(answer_four(),10)
+        Country Score
+1  Afghanistan      2
+2      Algeria     27
+3    Argentina    130
+4      Armenia     16
+5  Australasia     22
+6    Australia    923
+7      Austria    569
+8   Azerbaijan     43
+9      Bahamas     24
+10     Bahrain      1
+
+> #read last 5 records
+> tail(answer_four(),5)
+                              Country Score
+142                       Yugoslavia    171
+143 Independent Olympic Participants      4
+144                           Zambia      3
+145                         Zimbabwe     18
+146                       Mixed team     38
+
