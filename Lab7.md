@@ -257,4 +257,17 @@
 ```
 
 ### Питання 8 -В census_df США поділені на 4 регіони (колонка "REGION"). Напишіть функцію, яка знаходить округи (county), що належать регіонам 1 або 2, назва яких починається з "Washington" та POPESTIMATE2015 більше ніж POPESTIMATE2014. Функція повинна повернути 5х2 дата фрейм з колонками "STNAME", "CTYNAME".
-
+```{R}
+> answer_eight<- function() {
++     needed_rec<-subset(census_df, (REGION==1 | REGION==2) & (POPESTIMATE2015>POPESTIMATE2014))
++     needed_rec2<-needed_rec[grep("Washington", needed_rec$CTYNAME),]
++     return(needed_rec2[ , c("STNAME", "CTYNAME")])
++ }
+> answer_eight()
+           STNAME           CTYNAME
+897          Iowa Washington County
+1420    Minnesota Washington County
+2346 Pennsylvania Washington County
+2356 Rhode Island Washington County
+3164    Wisconsin Washington County
+```
