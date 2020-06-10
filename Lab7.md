@@ -210,4 +210,20 @@
 144                           Zambia      3
 145                         Zimbabwe     18
 146                       Mixed team     38
+```
+## Part 2
+
+### Питання 5 - В якому штаті (state) більше всього округів (county)?
+```{R}
+> answer_five<-function() {
++     groupped <- split(census_df, census_df$STNAME)
++     count_per_state <- sapply(groupped, nrow)
++     max_state <- names(which.max(count_per_state))
++     max_state
++ }
+
+> answer_five()
+[1] "Texas"
+```
+
 
