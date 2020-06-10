@@ -227,7 +227,21 @@
 ```
 
 ### Питання 6 - Якщо розглядати три найбільш населених округа (county) з кожного штату, які три найбільш населені штати (в порядку з більш до менш населеного)?
+```{R}
+> answer_six<-function() {
++     cs_ord<-census_df[order(census_df$STNAME, -census_df$CENSUS2010POP), ]
++     cs_gr <- split(cs_ord, census_df$STNAME)
++     cs_gr<-lapply(cs_gr, function (x) sum (x[2:4, "CENSUS2010POP"]))
++     cs_gr<-cs_gr[order(unlist(cs_gr), decreasing = TRUE, na.last = TRUE)]
++     state_list <- names(cs_gr)[1:3]
++     state_list
++ }
+> answer_six()
+[1] "California" "Texas"      "Illinois"  
+```
 
+### Питання 7 - Який округ (county) має найбільшу абсолютну зміну в населенні протягом періоду 2010-2015?
+```{R}
 
-
+```
 
